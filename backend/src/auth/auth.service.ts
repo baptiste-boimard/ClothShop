@@ -7,7 +7,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class AuthService {
-  private users: User[] = [];
+  private user: User;
 
   constructor(
     private jwtService: JwtService,
@@ -37,7 +37,10 @@ export class AuthService {
       throw new Error('Identifiants invalides');
     }
 
-    const token = this.jwtService.sign({ email });
+    const token = this.jwtService.sign(
+      { email, role: user.role },
+      { secret: process.env.SECRET_KEY },
+    );
     return { access_token: token };
   }
 }

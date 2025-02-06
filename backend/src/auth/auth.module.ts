@@ -10,10 +10,11 @@ import { User } from '../entities/user.entity';
     TypeOrmModule.forFeature([User]),
     JwtModule.register({
       secret: 'secret_key',
-      signOptions: { expiresIn: '1h' },
+      signOptions: { expiresIn: '2h' },
     }),
   ],
   controllers: [AuthController],
   providers: [AuthService],
+  exports: [AuthService, JwtModule],
 })
 export class AuthModule {}

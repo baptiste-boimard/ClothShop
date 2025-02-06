@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import * as dotenv from 'dotenv';
 import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
+import { AdminModule } from './admin/admin.module';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ dotenv.config();
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    AdminModule,
   ],
   controllers: [AppController],
   providers: [AppService],
