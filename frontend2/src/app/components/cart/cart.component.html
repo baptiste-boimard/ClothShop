@@ -1,0 +1,11 @@
+<div class="cart-container">
+    <h2>Mon Panier</h2>
+    <!-- Ici vous afficherez la liste des produits ajoutés au panier -->
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <p>{{ item.name }} - {{ item.quantity }} x {{ item.price }}</p>
+    </div>
+    <div class="cart-total">
+      <p>Total : {{ total }}</p>
+    </div>
+  </div>
+  
