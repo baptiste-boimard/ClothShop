@@ -6,12 +6,14 @@ import * as dotenv from 'dotenv';
 import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
 import { AdminModule } from './admin/admin.module';
+import { CartModule } from './cart/cart.module';
 
 dotenv.config();
 
 @Module({
   imports: [
     AuthModule,
+    CartModule,
     ProductModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -25,6 +27,7 @@ dotenv.config();
       synchronize: true,
     }),
     AdminModule,
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],
